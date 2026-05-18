@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RAF LOE AI Result</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header><h1>RAF LOE AI Processing Result</h1></header>
+<main class="container">
+    {% if success %}<div class="success">Processing completed successfully.</div>{% endif %}
+    {% if error %}<div class="error"><strong>Error:</strong> {{ error }}</div><pre>{{ traceback }}</pre>{% endif %}
+    {% if doc_error %}<div class="error"><strong>Notice:</strong> {{ doc_error }}</div>{% endif %}
+    {% if missing_inputs %}
+    <section class="card"><h2>Inputs that may need review</h2><ul>{% for m in missing_inputs %}<li>{{ m }}</li>{% endfor %}</ul></section>
+    {% endif %}
+    {% if files %}
+    <section class="card"><h2>Generated Downloads</h2>{% for f in files %}<p><strong>{{ f.label }}</strong><br><a href="{{ f.url }}" target="_blank">Download {{ f.path }}</a></p>{% endfor %}</section>
+    {% endif %}
+    {% if earnings_description %}
+    <section class="card"><h2>Generated Earnings Description</h2><pre>{{ earnings_description }}</pre></section>
+    {% endif %}
+    {% if case %}
+    <section class="card"><h2>Extracted Case Data and Summary Inputs</h2><pre>{{ case }}</pre></section>
+    {% endif %}
+    <p><a href="/">Process another report</a></p>
+</main>
+</body>
+</html>

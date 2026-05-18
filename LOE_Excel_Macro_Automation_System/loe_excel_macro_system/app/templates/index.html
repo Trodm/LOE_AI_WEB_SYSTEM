@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RAF LOE AI Actuarial Platform</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header>
+    <h1>RAF LOE AI Medico-Legal Actuarial Platform</h1>
+    <p>IP Report Upload → AI Medico-Legal Reasoning → Earnings Descriptions First → Summary/Report Mapping → LOE Calculation → Actuarial Report</p>
+</header>
+<main class="container">
+    {% if success %}<div class="success">{{ training_message or 'Success' }}</div>{% endif %}
+    {% if error %}<div class="error">{{ error }}</div>{% endif %}
+    <section class="grid">
+        <div class="card">
+            <h2>1. Process Industrial Psychologist Report</h2>
+            <form action="/process-ip" method="post" enctype="multipart/form-data">
+                <label>Upload IP Report: PDF, scanned PDF, DOCX, DOC or image</label>
+                <input type="file" name="file" required>
+                <label>Use Llama/Ollama after PyTorch reasoning</label>
+                <select name="use_llama"><option value="yes">Yes</option><option value="no">No - PyTorch/rule fallback only</option></select>
+                <label>Llama model</label>
+                <input name="llama_model" value="llama3.1:8b">
+                <h3>Contingencies</h3>
+                <label>Past Pre-Morbid</label><input type="number" step="0.01" name="past_pre" value="0.05">
+                <label>Past Post-Morbid</label><input type="number" step="0.01" name="past_post" value="0.05">
+                <label>Future Pre-Morbid</label><input type="number" step="0.01" name="future_pre" value="0.15">
+                <label>Future Post-Morbid</label><input type="number" step="0.01" name="future_post" value="0.25">
+                <button type="submit">Generate Earnings Descriptions First, then Calculation and Report</button>
+            </form>
+        </div>
+        <div class="card">
+            <h2>2. Training / Example Upload Panel</h2>
+            <form action="/train-model" method="post" enctype="multipart/form-data">
+                <label>Previous IP Report</label><input type="file" name="ip_report" required>
+                <label>Completed LOE Excel Model</label><input type="file" name="loe_model" required>
+                <label>Final Actuarial Report</label><input type="file" name="actuarial_report">
+                <label>Notes / Correct Mapping</label><textarea name="training_notes" rows="7" placeholder="Explain how the IP report mapped to earnings descriptions, Summary tab and actuarial report wording."></textarea>
+                <button type="submit">Save Training Example</button>
+            </form>
+        </div>
+    </section>
+    <section class="card">
+        <h2>Workflow</h2>
+        <ol>
+            <li>Upload IP Report</li><li>Read full IP report</li><li>Extract full text</li><li>AI Medico-Legal Actuarial reasoning</li><li>Generate pre/post earnings descriptions first</li><li>Download earnings descriptions</li><li>Populate Report tab from IP report</li><li>Populate Summary tab red fields from earnings descriptions</li><li>Run LOE calculation</li><li>Download XLSM and actuarial report</li>
+        </ol>
+    </section>
+</main>
+</body>
+</html>

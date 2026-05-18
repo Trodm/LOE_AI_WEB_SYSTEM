@@ -1,0 +1,22 @@
+UPDATED FEATURES
+================
+
+1. Industrial Psychologist report upload now accepts:
+   - PDF
+   - scanned PDF
+   - DOCX
+   - DOC
+   - PNG/JPG/JPEG/BMP/TIFF/WEBP pictures
+
+2. The parser automatically chooses the best reading method:
+   - pdf-text for normal PDFs
+   - pdf-ocr for scanned PDFs
+   - docx-text for Word DOCX files
+   - doc-text for old DOC files
+   - image-ocr for pictures/scanned pages
+
+3. The GUI now shows the extraction method and number of extracted characters.
+
+4. Clear errors are shown where OCR is required but Tesseract OCR is not installed.
+
+5. Added INSTALL_OCR_TESSERACT_WINDOWS.bat for installing Tesseract OCR through winget.

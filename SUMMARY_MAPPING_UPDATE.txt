@@ -1,0 +1,16 @@
+SUMMARY TAB MAPPING UPDATE
+
+This version maps AI-extracted IP report earnings assumptions into the red Summary tab fields:
+- Financial Year  -> Summary column C
+- Age             -> Summary column D
+- Salary          -> Summary column E
+- Salary Today    -> Summary column F
+- Financial terms -> Summary column G
+- Progression     -> Summary column H
+
+Pre-accident rows are written to Summary rows 5 to 8.
+Post-accident rows are written to Summary rows 55 to 57.
+
+The Llama extraction prompt now requests annual_earnings rows with: financial_year, age, salary, salary_today, financial_terms, and progression.
+Progression is normalized to either Flat or Linear.
+If age is not explicitly extracted, the system attempts to calculate it from date of birth and financial year.

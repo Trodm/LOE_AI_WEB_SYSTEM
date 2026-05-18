@@ -1,0 +1,19 @@
+V5 Continuity Update
+
+The earnings-description engine has been updated to enforce medico-legal actuarial chronology:
+
+PRE-ACCIDENT:
+1. Earnings/employment status at the time of accident must appear first.
+2. Subsequent employment changes follow in date order.
+3. Promotions/progression follow in date/age order.
+4. Alternative/future projected progression follows.
+5. Retirement/salary inflation sentence is always the final bullet.
+
+POST-ACCIDENT:
+1. Immediate post-accident employment/income impact appears first.
+2. Recuperation/unemployment/no-income periods follow.
+3. Return-to-work/current earnings follow.
+4. Reduced/alternative/future progression follows.
+5. Retirement/nil-to-retirement sentence is always the final bullet.
+
+This update affects ai_extractor.py and all downloaded earnings descriptions generated through compose_earnings_description().

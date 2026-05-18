@@ -1,0 +1,29 @@
+V4 STRICT ACTUARIAL EARNINGS DESCRIPTION UPDATE
+
+This version changes the earnings-description generator so it no longer produces broad IP summaries.
+It now follows the user's examples exactly:
+
+Pre-accident Income:
+- occupation/status at accident
+- actual/recommended earnings
+- working pattern
+- annual equivalent and money terms
+- future progression to scale/Paterson/quartile/benchmark
+- salary inflation and retirement age
+
+Post-accident Income:
+- period away/hospitalised/recuperated
+- remunerated or not
+- return-to-work/current employment/unemployment status
+- current earnings or nil earnings
+- future post-morbid assumption
+- salary inflation/retirement or nil remainder
+
+Excluded from earnings descriptions:
+- injuries
+- expert summaries
+- education/family/socio-economic history
+- medical complaints
+- long IP narrative
+
+The Summary tab continues to be populated from the extracted calculation-ready rows.

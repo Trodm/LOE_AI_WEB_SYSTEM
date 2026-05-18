@@ -1,0 +1,15 @@
+JACOB MOTAUNG STYLE MAPPING UPDATE
+
+This version has been updated using the uploaded Jacob Thabiso Motaung IP report, actuarial DOCM report and XLSM calculation model as a perfect mapping example.
+
+The system now:
+1. Reads the PRE-ACCIDENT EMPLOYMENT & EARNINGS SCENARIO section directly.
+2. Reads the POST-ACCIDENT LOSS OF EMPLOYMENT AND EARNINGS SCENARIO section directly.
+3. Generates RAF-style earnings descriptions similar to the Jacob Motaung actuarial report.
+4. Maps actual IP report values into the Summary tab red fields, not defaults.
+5. Writes Financial Year, Age, Salary, Salary Today, Financial Terms and Progression.
+6. Supports scale phrases such as lower/median/upper unskilled, lower/median/upper semi-skilled and Paterson A1-E2.
+7. Produces downloadable outputs: earnings write-up TXT, populated XLSM calculation model, and actuarial DOCX report.
+8. Uses Llama/Ollama where configured, with deterministic PyTorch/rule fallback when Llama is unavailable on Render.
+
+On Render/Linux, Microsoft Office macros cannot run. Therefore DOCX reports are generated with python-docx and the XLSM model is populated using openpyxl. On Windows with Office installed, DOCM/PDF macro generation may still run.

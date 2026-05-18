@@ -1,0 +1,10 @@
+OCR SETUP NOTE
+==============
+
+This updated system can read scanned PDFs and picture files by using Tesseract OCR.
+
+Install Tesseract OCR for Windows, then restart the app.
+Recommended Windows installation path:
+C:\Program Files\Tesseract-OCR\tesseract.exe
+
+If the app says OCR is missing, make sure Tesseract is installed and added to Windows PATH.

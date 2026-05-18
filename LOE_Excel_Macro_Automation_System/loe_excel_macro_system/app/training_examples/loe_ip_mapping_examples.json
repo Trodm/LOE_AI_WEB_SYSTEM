@@ -1,0 +1,97 @@
+{
+  "purpose": "RAF LOE IP-to-actuarial mapping examples with strict actuarial-only earnings description format.",
+  "rules": [
+    "Pre-accident earnings are extracted from headings such as PRE-ACCIDENT EMPLOYMENT & EARNINGS SCENARIO, PRE-ACCIDENT EMPLOYMENT SCENARIO, PRE-MORBID EARNINGS, or PRE-MORBID POTENTIAL FUNCTIONING.",
+    "Post-accident earnings are extracted from POST-ACCIDENT LOSS OF EMPLOYMENT AND EARNINGS SCENARIO, POST-ACCIDENT EMPLOYMENT SCENARIO, POST-MORBID PROBABLE EARNING PROJECTIONS, POST-MORBID POTENTIAL FUNCTIONING, or LOSS OF EARNINGS.",
+    "Summary tab red values must be overwritten with IP report actuals, not defaults.",
+    "Progression is Linear when the IP says progress, increase to, reach, by age, career ceiling, promoted, grow to, plateau at. Progression is Flat when the IP says remain, continue, inflationary increases only, no career progression, same capacity, unemployed/nil, or current earnings only.",
+    "Preserve exact benchmark phrases: lower/median/upper quartile of unskilled or semi-skilled workers, Paterson A1-E2, NMW, Bargaining Council, payslip/affidavit/bank-statement basis.",
+    "For self-employed cases, use bank statement or affidavit averages and business-growth/plateau logic. A claimant may still earn income but suffer future loss through reduced scalability and productivity.",
+    "On Render/Linux, produce DOCX and populated XLSM. PDF is produced only when LibreOffice is available; Windows Office macro automation remains optional for local Windows deployment."
+  ],
+  "examples": [
+    {
+      "case": "Jacob Thabiso Motaung",
+      "type": "older general worker/team leader",
+      "pre": "R350/day, R91,000 p.a., median to upper quartile unskilled, later median unskilled until age 65",
+      "post": "one month hospital + one month recuperation, did not return, unemployed/pension, rendered unemployable"
+    },
+    {
+      "case": "Thabisile Norah Thanjekwayo",
+      "type": "general worker/unskilled",
+      "pre": "R4,000 per month = R48,000 p.a.; median unskilled Koch 2023; linear to midpoint median/UQ unskilled by age 45; retirement 65",
+      "post": "unemployed from accident to report; re-entry after 36 months at 50% LQ unskilled; inflation only to retirement 60"
+    },
+    {
+      "case": "Mosani Rodney Molekwa",
+      "type": "self-employed mechanic/semi-skilled",
+      "pre": "Average bank statement earnings R15,567.67 per month = R186,920 p.a.; linear to senior mechanic/SalaryExpert R342,179 p.a. by age 55; retirement 65/70",
+      "post": "nil for recovery; returned with difficulties; R108,000 p.a. affidavit/current earnings; confined between median and UQ semi-skilled Koch 2026"
+    },
+    {
+      "case": "Lindokuhle Mchunu",
+      "type": "school learner/security officer",
+      "pre": "education/career path based on grade and security qualifications; Paterson/unskilled-to-security progression logic",
+      "post": "Grade C security officer with post-morbid limitations and reduced career ceiling"
+    },
+    {
+      "case": "Zanele Ndwandwe",
+      "type": "young TVET educational disruption",
+      "pre": "NCV process plant operations progression and likely industrial career path",
+      "post": "educational disruption/dropout, unemployment and reduced employability"
+    },
+    {
+      "case": "Xolisile Ntshalintshali",
+      "type": "domestic worker informal sector",
+      "pre": "domestic worker earnings using affidavit/collateral informal earnings",
+      "post": "unemployed with reduced functional/cognitive capacity"
+    },
+    {
+      "case": "Thabang Makofane",
+      "type": "mining/ADT operator",
+      "pre": "General worker to ADT operator, vocational certificates, mining/semi-skilled progression",
+      "post": "unemployed/reduced capacity with cognitive/hearing/physical sequelae"
+    },
+    {
+      "case": "Lerato Ramabolu",
+      "type": "street vendor/informal older worker",
+      "pre": "factory/seamstress/street vendor low-skilled informal-sector pathway",
+      "post": "older claimant, physical restrictions, unemployment and limited alternative employability"
+    }
+  ],
+  "strict_earnings_description_rules": [
+    "Pre-accident Income must include only: occupation/status at accident, actual/recommended earnings, working pattern, annual equivalent, future earnings progression/benchmark, salary inflation and retirement age.",
+    "Post-accident Income must include only: period away/hospitalised/recuperated, remuneration status, return-to-work/current unemployment/current earnings, post-morbid future earning assumption, salary inflation or nil earnings, and retirement age.",
+    "Exclude all medical injuries, expert report summaries, education history, family/socio-economic facts and long narrative stories unless education is itself the pre-accident earnings path for a minor/student.",
+    "Always use bullet points under Pre-accident Income and Post-accident Income.",
+    "Preserve exact calculation-ready wording: R amounts, per month/week/day/hour, annual equivalents, money terms/tax tables, Koch year, Paterson band, quartile, midpoint, NMW, bargaining council, payslip, bank statement and affidavit.",
+    "When IP says by age/date, growing, increased, promoted, progressed or midpoint/Paterson/quartile progression, map Summary progression as Linear.",
+    "When IP says remain in same capacity, current earnings only, nil income, unemployment, inflation only, or no progression, map Summary progression as Flat."
+  ],
+  "actuarial_style_examples": [
+    {
+      "pre": "At the time of the accident, the claimant was employed as a General Worker, earning R350 per day, while working 5 days per week (R91 000 per annum, 2024 money terms).",
+      "post": "Following the accident, the claimant was hospitalised for one month and recuperated at home for one month, during which period he was not remunerated."
+    },
+    {
+      "pre": "By the age of 43 years, his earnings would have increased linearly to the midpoint between the upper quartile of the semi-skilled worker scale and the assumed median of Paterson B4.",
+      "post": "Therefore, he would secure employment assumed in March 2027, earning at a prescribed minimum wage for Cashiers of R30.51 per hour, while working 3 months in a year."
+    },
+    {
+      "pre": "At the time of the accident, the claimant was self-employed as a Nail Technician, earning an average of R2 750 per week (R143 000 per annum, 2023 money terms).",
+      "post": "In 2024, she resumed her self-employment and remains self-employed to date, earning an average of R250 per week (R13 000 per annum, 2026 money terms)."
+    },
+    {
+      "pre": "At the time of the accident, the claimant was unemployed. She would have secured employment in December 2023, earning at the midpoint between the lower quartile and the median of the unskilled worker scale.",
+      "post": "The Industrial Psychologist opines that she would remain unemployed for the rest of her life due to accident-related impairments."
+    },
+    {
+      "pre": "At the time of the accident, the claimant was a learner in Grade 8. He would have matriculated and enrolled for a bachelor degree and thereafter entered the open labour market.",
+      "post": "In January 2025, he secured employment as a Taxi Driver and remains employed in the same capacity, earning R1 000 per week."
+    },
+    {
+      "pre": "At the time of the accident, the claimant was employed as a Waitress. For calculation purposes, the Industrial Psychologist recommended the use of a prescribed minimum wage for a Waiter.",
+      "post": "She never returned to work but was remunerated by her employer R1 500 per month until September 2025."
+    }
+  ]
+}

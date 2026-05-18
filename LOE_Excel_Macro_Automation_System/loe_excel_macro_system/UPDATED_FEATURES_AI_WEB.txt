@@ -1,0 +1,60 @@
+AI + WEB PLATFORM UPGRADE
+
+This package has been upgraded to support:
+
+1. Multi-format IP report reading
+   - PDF
+   - scanned PDF via OCR
+   - Word DOCX/DOC
+   - image files: PNG, JPG, JPEG, BMP, TIFF, WEBP
+
+2. Hybrid AI extraction
+   - Llama/Ollama JSON extraction for claimant, legal, pre-morbid and post-morbid career/earnings information
+   - PyTorch-assisted sentence ranking fallback when Llama is not available
+   - Existing deterministic rule extraction remains active as a safety layer
+
+3. Mapping to the calculation model
+   - Report tab fields: claimant, ID, date of accident, attorney, reference, IP name and report date
+   - Summary tab fields: pre/post peak ages, retirement ages and extracted earnings rows
+   - Earnings Descriptions tab: AI/rule extracted pre- and post-morbid narratives
+
+4. Web platform access
+   - FastAPI website interface
+   - File upload through browser
+   - Download populated XLSM calculation model
+   - On Windows server with Microsoft Office, Word DOCM/PDF generation can also run from the web app
+   - Designed to run with multiple workers for 20+ users
+
+STARTING THE WEB APP ON WINDOWS
+
+Double-click:
+START_WEB_APP.bat
+
+Then open:
+http://127.0.0.1:8000
+
+LLAMA / OLLAMA SETUP
+
+Install Ollama and run a model such as:
+ollama pull llama3.1:8b
+ollama serve
+
+The system expects Ollama at:
+http://127.0.0.1:11434
+
+You can change this by setting:
+OLLAMA_BASE_URL
+OLLAMA_MODEL
+
+DEPLOYMENT NOTES FOR 20+ USERS
+
+Recommended architecture:
+Frontend/Backend: FastAPI web platform in this package
+AI inference: Ollama/Llama on a GPU server or RunPod
+Database option for production: PostgreSQL can be added for user accounts and job tracking
+Storage: local server storage, SharePoint, S3, or Azure Blob
+Concurrency: run Uvicorn/Gunicorn with 2 or more workers behind Nginx/Render/Azure/AWS
+
+Important:
+Full Excel macro and Word/PDF automation needs Windows hosting with Microsoft Excel and Word installed.
+Linux cloud hosting can still produce the populated XLSM workbook, but cannot run Windows COM Excel/Word macros.
